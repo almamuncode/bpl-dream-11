@@ -21,10 +21,10 @@ const Players = ({ playersPromise, coin, setCoin }: PlayersProps) => {
 
     return (
 
-        <div className='container mx-auto'>
-            <div className='flex justify-between my-10'>
-                <h1 className='text-2xl'>{buttonType === "Available" ? <h1>Available Players</h1> : <h1>Selected Players</h1>}</h1>
-                <div>
+        <div className='container mx-auto px-4 lg:px-0'>
+            <div className='my-6 flex flex-col gap-4 sm:my-8 sm:flex-row sm:items-center sm:justify-between lg:my-10'>
+                <h1 className='text-xl font-semibold sm:text-2xl'>{buttonType === "Available" ? 'Available Players' : 'Selected Players'}</h1>
+                <div className='flex w-full sm:w-auto'>
                     <button onClick={() => handleUpdateBtn("Available")} className={`btn ${buttonType === "Available" ? "btn-success" : ""} rounded-r-none`}>Available</button>
                     <button onClick={() => handleUpdateBtn("Selected")} className={`btn  ${buttonType === "Selected" ? "btn-success" : ""} rounded-l-none`}
                     >Selected</button>

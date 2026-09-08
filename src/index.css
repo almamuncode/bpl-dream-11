@@ -1,2 +1,31 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+:root {
+	--page-color: #f8fafc;
+	--surface-color: #ffffff;
+	--surface-muted: #f1f5f9;
+	--text-color: #172033;
+	--muted-color: #64748b;
+	--border-color: #e2e8f0;
+}
+
+[data-theme='dark'] {
+	--page-color: #101827;
+	--surface-color: #182335;
+	--surface-muted: #202d40;
+	--text-color: #f8fafc;
+	--muted-color: #b4c0d0;
+	--border-color: #334155;
+}
+
+body {
+	margin: 0;
+	background: var(--page-color);
+	color: var(--text-color);
+	transition: background-color 200ms ease, color 200ms ease;
+}
+
+.app-shell {
+	background: var(--page-color);
+}

@@ -18,7 +18,7 @@ const SelectedPlayers = ({ selectedPlayers, setSelectedPlayers, coin, setCoin }:
     }
     if (selectedPlayers.length === 0) {
         return (
-            <div className="flex min-h-60 flex-col items-center justify-center rounded-2xl border border-dashed border-gray-300 bg-gray-50 p-8 text-center">
+            <div className="flex min-h-60 flex-col items-center justify-center rounded-2xl border border-dashed border-[var(--border-color)] bg-[var(--surface-muted)] p-6 text-center sm:p-8">
                 <div className="mb-4 text-5xl">🏏</div>
 
                 <h2 className="text-2xl font-bold text-gray-800">
@@ -36,16 +36,16 @@ const SelectedPlayers = ({ selectedPlayers, setSelectedPlayers, coin, setCoin }:
         <div>
             <div className="grid gap-3">
                 {selectedPlayers.map((selectedPlayer) => (
-                    <div key={selectedPlayer.id} className="rounded-xl border border-gray-200 bg-white p-3 shadow-sm">
-                        <div className="flex justify-between items-center">
+                    <div key={selectedPlayer.id} className="rounded-xl border border-[var(--border-color)] bg-[var(--surface-color)] p-3 shadow-sm">
+                        <div className="flex items-center justify-between gap-3">
 
-                            <div className="flex gap-3"><img className="w-40 rounded-xl" src={selectedPlayer.profileImg} alt="" />
+                            <div className="flex min-w-0 items-center gap-3"><img className="w-24 rounded-xl sm:w-40" src={selectedPlayer.profileImg} alt={selectedPlayer.name} />
                                 <div>
-                                    <h2 className="font-semibold text-2xl text-gray-900">{selectedPlayer.name}</h2>
-                                    <p className="text-gray-500">{selectedPlayer.category}</p>
+                                    <h2 className="text-lg font-semibold text-[var(--text-color)] sm:text-2xl">{selectedPlayer.name}</h2>
+                                    <p className="text-[var(--muted-color)]">{selectedPlayer.category}</p>
                                 </div>
                             </div>
-                            <span onClick={() => handleRemovePlayers(selectedPlayer)} className="text-red-500 text-3xl mr-10 cursor-pointer"><MdDelete /></span>
+                            <button aria-label={`Remove ${selectedPlayer.name}`} onClick={() => handleRemovePlayers(selectedPlayer)} className="mr-2 cursor-pointer text-2xl text-red-500 sm:mr-10 sm:text-3xl"><MdDelete /></button>
                         </div>
                     </div>
                 ))}

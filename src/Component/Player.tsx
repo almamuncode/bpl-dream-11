@@ -50,10 +50,10 @@ const Player = ({ player, coin, setCoin, setSelectedPlayers, selectedPlayers }: 
     }
 
     return (
-        <div className="w-full max-w-sm overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+        <div className="w-full max-w-sm overflow-hidden rounded-2xl border border-[var(--border-color)] bg-[var(--surface-color)] shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
 
             {/* Player Image */}
-            <div className="relative h-60 overflow-hidden bg-gray-100">
+            <div className="relative h-52 overflow-hidden bg-gray-100 sm:h-60">
                 <img
                     src={player.profileImg}
                     alt={player.name}
@@ -69,8 +69,8 @@ const Player = ({ player, coin, setCoin, setSelectedPlayers, selectedPlayers }: 
 
                 {/* Name + Country */}
                 <div className="mb-4">
-                    <h2 className="text-xl font-bold text-gray-900">{player.name}</h2>
-                    <p className="mt-1 text-sm text-gray-500">🌍 {player.country}</p>
+                    <h2 className="text-xl font-bold text-[var(--text-color)]">{player.name}</h2>
+                    <p className="mt-1 text-sm text-[var(--muted-color)]">🌍 {player.country}</p>
                 </div>
 
                 {/* Category + Price */}
@@ -79,8 +79,8 @@ const Player = ({ player, coin, setCoin, setSelectedPlayers, selectedPlayers }: 
                         {player.category}</span>
 
                     <div className="text-right">
-                        <p className="text-xs text-gray-400">Price</p>
-                        <p className="text-lg font-bold text-gray-900">${player.price.toLocaleString()}</p>
+                        <p className="text-xs text-[var(--muted-color)]">Price</p>
+                        <p className="text-lg font-bold text-[var(--text-color)]">${player.price.toLocaleString()}</p>
                     </div>
                 </div>
 

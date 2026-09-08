@@ -14,7 +14,7 @@ const AvailablePlayers = ({ players, coin, setCoin, setSelectedPlayers, selected
 
     return (
         <div>
-            <div className="grid grid-cols-3 gap-10 justify-items-center">
+            <div className="grid grid-cols-1 gap-5 justify-items-center sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 lg:gap-10">
                 {players.map((player) => <Player selectedPlayers={selectedPlayers} setSelectedPlayers={setSelectedPlayers} coin={coin} setCoin={setCoin} key={player.id} player={player}></Player>)}
             </div>
         </div>

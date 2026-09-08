@@ -12,15 +12,16 @@ const playersFetch = async () => {
 function App() {
   const [playersPromise] = useState(()=> playersFetch())
   const [coin, setCoin] = useState(50000)
+  const [theme, setTheme] = useState<'light' | 'dark'>('light')
 
   return (
-    <>
-      <Navbar coin={coin}></Navbar>
+    <div data-theme={theme} className="app-shell min-h-screen">
+      <Navbar coin={coin} theme={theme} setTheme={setTheme}></Navbar>
       <Banner coin={coin} setCoin={setCoin}></Banner>
       <Suspense fallback={<p>Loading......</p>}>
         <Players coin={coin} setCoin={setCoin} playersPromise={playersPromise}></Players>
       </Suspense>
-    </>
+    </div>
   )
 }
 
