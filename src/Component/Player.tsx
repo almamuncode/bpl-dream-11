@@ -1,10 +1,48 @@
+import { useState } from "react";
 import type { PlayerType } from "../type";
+import { Bounce, toast } from "react-toastify";
 
 interface PlayerProps {
     player: PlayerType;
+    coin: number;
+    setCoin: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const Player = ({ player }: PlayerProps) => {
+const Player = ({ player, coin, setCoin }: PlayerProps) => {
+
+    const [isSelected, setIsSelected] = useState(false)
+    const handleSelectPlayer = () => {
+        setIsSelected(true)
+        const newCoinPrice = coin - player.price
+
+        if (newCoinPrice >= 0) {
+            setCoin(newCoinPrice)
+            toast.success(`${player.name} is purchased successfully`, {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                transition: Bounce,
+            });
+        } else {
+            toast.error("Insufficient Coin", {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                transition: Bounce,
+            });
+        }
+    }
+
     return (
         <div className="w-full max-w-sm overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
 
@@ -53,8 +91,14 @@ const Player = ({ player }: PlayerProps) => {
                 </div>
 
                 {/* Button */}
-                <button className="btn w-full rounded-xl border-none bg-green-500 text-white hover:bg-green-600">
-                    Choose Player
+                <button
+                    onClick={() => handleSelectPlayer()}
+                    disabled={isSelected}
+                    className="btn w-full rounded-xl shadow-md transition-all bg-green-500 text-white border-none
+                     hover:bg-green-600 disabled:bg-gray-300 disabled:text-gray-500 disabled:opacity-100      disabled:cursor-not-allowed
+    "
+                >
+                    {isSelected ? "Selected" : "Choose Player"}
                 </button>
             </div>
         </div>

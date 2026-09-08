@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Logo from "../../assets/logo.png"
 import { AiOutlineDollar } from 'react-icons/ai';
 
-const Navbar = () => {
+const Navbar = ({coin}: {coin:number}) => {
+
+    
+
     return (
         <div className=' py-4'>
             <nav className='flex justify-between container mx-auto'>
@@ -14,7 +17,7 @@ const Navbar = () => {
                         <li>Teams</li>
                         <li>Schedule</li>
                     </ul>
-                    <button className='font-bold btn border-amber-100'><span><AiOutlineDollar className='text-yellow-300' /></span>Coin</button>
+                    <button className='font-bold btn border-amber-100 text-xl'>Coin<span><AiOutlineDollar className='text-yellow-300'/></span> <span>{coin}</span></button>
                 </div>
             </nav>
         </div>

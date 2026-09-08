@@ -1,4 +1,4 @@
-import { Suspense } from 'react'
+import { Suspense, useState } from 'react'
 import Navbar from './Component/Navbar/Navbar'
 import Banner from './Component/Banner'
 import Players from './Component/Players'
@@ -10,13 +10,14 @@ const playersPromise = async () => {
 }
 
 function App() {
+  const [coin, setCoin] = useState(50000)
 
   return (
     <>
-      <Navbar></Navbar>
+      <Navbar coin={coin}></Navbar>
       <Banner></Banner>
       <Suspense fallback={<p>Loading......</p>}>
-        <Players playersPromise={playersPromise()}></Players>
+        <Players coin={coin} setCoin={setCoin} playersPromise={playersPromise()}></Players>
       </Suspense>
     </>
   )
