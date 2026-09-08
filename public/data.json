@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "name": "Shakib Al Hasan",
+    "profileImg": "https://ichef.bbci.co.uk/ace/standard/1024/cpsprodpb/9055/production/_128794963_gettyimages-1433007292.jpg",
+    "rating": 9.5,
+    "country": "Bangladesh",
+    "category": "All-Rounder",
+    "price": 9500
+  },
+  {
+    "id": 2,
+    "name": "Virat Kohli",
+    "profileImg": "https://cdn.britannica.com/71/273871-050-C9737B68/Royal-Challengers-Bengaluru-Virat-Kohli-Plays-A-Shot-During-The-Indian-Premier-League-Twenty20-Cricket-Match-Between-Kolkata-Knight-Riders.jpg",
+    "rating": 9.8,
+    "country": "India",
+    "category": "Batsman",
+    "price": 9800
+  },
+  {
+    "id": 3,
+    "name": "Babar Azam",
+    "profileImg": "https://c.ndtvimg.com/2026-02/mchkbif_babar-azam-afp_625x300_25_February_26.jpg?im=FitAndFill,algorithm=dnn,width=1200,height=738",
+    "rating": 9.7,
+    "country": "Pakistan",
+    "category": "Batsman",
+    "price": 9700
+  },
+  {
+    "id": 4,
+    "name": "Rashid Khan",
+    "profileImg": "https://www.aljazeera.com/wp-content/uploads/2026/08/AP26171498484083-1786175863.jpg?resize=770%2C513&quality=80",
+    "rating": 9.6,
+    "country": "Afghanistan",
+    "category": "Bowler",
+    "price": 9200
+  },
+  {
+    "id": 5,
+    "name": "Jos Buttler",
+    "profileImg": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTyGmroPGtbYSIR8hryemvKGb0JVctbyDHJNS5Lt6Vstsi-EEevvGZ98k&s=10",
+    "rating": 9.4,
+    "country": "England",
+    "category": "Wicketkeeper",
+    "price": 9000
+  },
+  {
+    "id": 6,
+    "name": "Glenn Maxwell",
+    "profileImg": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRho5sS_Y_P3d70GVD6Rt8PyyrD7VH9fTtx1fsioiHDJhzKJY4GSOEjhYg&s=10",
+    "rating": 9.2,
+    "country": "Australia",
+    "category": "All-Rounder",
+    "price": 8000
+  },
+  {
+    "id": 7,
+    "name": "Kane Williamson",
+    "profileImg": "https://api.bdcrictime.com/kane-williamson-confirmed-for-2026-t20-world-cup-15_09_2025.jpg",
+    "rating": 9.3,
+    "country": "New Zealand",
+    "category": "Batsman",
+    "price": 8500
+  },
+  {
+    "id": 8,
+    "name": "Trent Boult",
+    "profileImg": "https://media.crictracker.com/media/attachments/1745745925559_Trent-Boult.jpeg",
+    "rating": 9.1,
+    "country": "New Zealand",
+    "category": "Bowler",
+    "price": 82000
+  },
+  {
+    "id": 9,
+    "name": "Rohit Sharma",
+    "profileImg": "https://media.crictracker.com/media/attachments/1761723929826_FotoJet---2025-10-29T131441.jpeg",
+    "rating": 9.5,
+    "country": "India",
+    "category": "Batsman",
+    "price": 9400
+  },
+  {
+    "id": 10,
+    "name": "Mustafizur Rahman",
+    "profileImg": "https://img1.hscicdn.com/image/upload/f_auto/lsci/db/PICTURES/CMS/383500/383539.6.jpg",
+    "rating": 8.9,
+    "country": "Bangladesh",
+    "category": "Bowler",
+    "price": 7800
+  }
+]
