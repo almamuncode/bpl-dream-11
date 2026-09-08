@@ -1,4 +1,4 @@
-import { useState, type Dispatch, type SetStateAction } from "react";
+import type { Dispatch, SetStateAction } from "react";
 import type { PlayerType } from "../type";
 import { Bounce, toast } from "react-toastify";
 
@@ -12,24 +12,12 @@ interface PlayerProps {
 
 const Player = ({ player, coin, setCoin, setSelectedPlayers, selectedPlayers }: PlayerProps) => {
 
-    const [isSelected, setIsSelected] = useState(false)
+    const isSelected = selectedPlayers.some(selectedPlayer => selectedPlayer.id === player.id)
     const handleSelectPlayer = () => {
-        setIsSelected(true)
+        if (isSelected) return
+
         const newCoinPrice = coin - player.price
-        if (newCoinPrice >= 0) {
-            setCoin(newCoinPrice)
-            toast.success(`${player.name} is purchased successfully`, {
-                position: "top-center",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: false,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "colored",
-                transition: Bounce,
-            });
-        } else {
+        if (newCoinPrice < 0) {
             toast.error("Insufficient Coin", {
                 position: "top-center",
                 autoClose: 5000,
@@ -41,7 +29,22 @@ const Player = ({ player, coin, setCoin, setSelectedPlayers, selectedPlayers }: 
                 theme: "colored",
                 transition: Bounce,
             });
+            return
         }
+
+        setCoin(newCoinPrice)
+        toast.success(`${player.name} is purchased successfully`, {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+            transition: Bounce,
+        });
+
         const newPlayers = [...selectedPlayers, player]
         setSelectedPlayers(newPlayers)
     }
