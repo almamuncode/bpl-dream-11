@@ -1,20 +1,21 @@
-import { useState } from "react";
+import { useState, type Dispatch, type SetStateAction } from "react";
 import type { PlayerType } from "../type";
 import { Bounce, toast } from "react-toastify";
 
 interface PlayerProps {
     player: PlayerType;
     coin: number;
-    setCoin: React.Dispatch<React.SetStateAction<number>>;
+    setCoin: Dispatch<SetStateAction<number>>;
+    setSelectedPlayers: Dispatch<SetStateAction<PlayerType[]>>;
+    selectedPlayers: PlayerType[];
 }
 
-const Player = ({ player, coin, setCoin }: PlayerProps) => {
+const Player = ({ player, coin, setCoin, setSelectedPlayers, selectedPlayers }: PlayerProps) => {
 
     const [isSelected, setIsSelected] = useState(false)
     const handleSelectPlayer = () => {
         setIsSelected(true)
         const newCoinPrice = coin - player.price
-
         if (newCoinPrice >= 0) {
             setCoin(newCoinPrice)
             toast.success(`${player.name} is purchased successfully`, {
@@ -41,6 +42,8 @@ const Player = ({ player, coin, setCoin }: PlayerProps) => {
                 transition: Bounce,
             });
         }
+        const newPlayers = [...selectedPlayers, player]
+        setSelectedPlayers(newPlayers)
     }
 
     return (
@@ -51,12 +54,10 @@ const Player = ({ player, coin, setCoin }: PlayerProps) => {
                 <img
                     src={player.profileImg}
                     alt={player.name}
-                    className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
-                />
+                    className="h-full w-full object-cover transition-transform duration-500 hover:scale-105" />
 
                 {/* Rating */}
-                <div className="absolute right-3 top-3 rounded-full bg-white/90 text-black px-3 py-1 text-sm font-semibold shadow backdrop-blur">
-                    ⭐ {player.rating}
+                <div className="absolute right-3 top-3 rounded-full bg-white/90 text-black px-3 py-1 text-sm font-semibold shadow backdrop-blur"> ⭐ {player.rating}
                 </div>
             </div>
 
@@ -65,28 +66,18 @@ const Player = ({ player, coin, setCoin }: PlayerProps) => {
 
                 {/* Name + Country */}
                 <div className="mb-4">
-                    <h2 className="text-xl font-bold text-gray-900">
-                        {player.name}
-                    </h2>
-
-                    <p className="mt-1 text-sm text-gray-500">
-                        🌍 {player.country}
-                    </p>
+                    <h2 className="text-xl font-bold text-gray-900">{player.name}</h2>
+                    <p className="mt-1 text-sm text-gray-500">🌍 {player.country}</p>
                 </div>
 
                 {/* Category + Price */}
                 <div className="mb-5 flex items-center justify-between">
                     <span className="rounded-full bg-green-50 px-3 py-1 text-sm font-medium text-green-600">
-                        {player.category}
-                    </span>
+                        {player.category}</span>
 
                     <div className="text-right">
-                        <p className="text-xs text-gray-400">
-                            Price
-                        </p>
-                        <p className="text-lg font-bold text-gray-900">
-                            ${player.price.toLocaleString()}
-                        </p>
+                        <p className="text-xs text-gray-400">Price</p>
+                        <p className="text-lg font-bold text-gray-900">${player.price.toLocaleString()}</p>
                     </div>
                 </div>
 
@@ -95,9 +86,7 @@ const Player = ({ player, coin, setCoin }: PlayerProps) => {
                     onClick={() => handleSelectPlayer()}
                     disabled={isSelected}
                     className="btn w-full rounded-xl shadow-md transition-all bg-green-500 text-white border-none
-                     hover:bg-green-600 disabled:bg-gray-300 disabled:text-gray-500 disabled:opacity-100      disabled:cursor-not-allowed
-    "
-                >
+                     hover:bg-green-600 disabled:bg-gray-300 disabled:text-gray-500 disabled:opacity-100      disabled:cursor-not-allowed">
                     {isSelected ? "Selected" : "Choose Player"}
                 </button>
             </div>

@@ -1,10 +1,33 @@
+import { Bounce, toast } from "react-toastify";
 import Cricket from "../assets/banner-main.png";
 import Background from "../assets/bg-shadow.png";
 
-const Banner = () => {
+interface PlayersProps {
+    coin: number;
+    setCoin: React.Dispatch<React.SetStateAction<number>>;
+}
+
+const Banner = ({ coin, setCoin }: PlayersProps) => {
+
+    const handleAddCoins = () => {
+        const newCoins = coin + 5000
+        setCoin(newCoins)
+        toast.success(`Wow You have Got 5000 Coins`, {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                transition: Bounce,
+            });
+    }
+
     return (
         <div
-            className="container mx-auto my-10 rounded-2xl min-h-[500px] bg-cover bg-center bg-no-repeat
+            className="container mx-auto my-10 rounded-2xl min-h-125 bg-cover bg-center bg-no-repeat
                        flex flex-col items-center justify-center text-center"
             style={{ backgroundImage: `url(${Background})` }}
         >
@@ -22,7 +45,7 @@ const Banner = () => {
                 Beyond Boundaries Beyond Limits
             </p>
 
-            <button className="btn btn-warning my-5">
+            <button onClick={() => handleAddCoins()} className="btn btn-warning my-5">
                 Claim Free Credit
             </button>
         </div>
